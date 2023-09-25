@@ -1,2 +1,5 @@
-https://github.com/D-K-Deng/D-K-Deng.github.io/2023/09/20/Introduction/
-https://github.com/D-K-Deng/D-K-Deng.github.io/2023/09/20/hello-world/
+https://github.com/D-K-Deng/D-K-Deng.github.io/2023/09/24/intro/
+https://github.com/D-K-Deng/D-K-Deng.github.io/2022/12/18/CPAPP/
+https://github.com/D-K-Deng/D-K-Deng.github.io/2022/03/04/4/
+https://github.com/D-K-Deng/D-K-Deng.github.io/2023/05/07/musicmap/
+https://github.com/D-K-Deng/D-K-Deng.github.io/2022/12/13/data-processing/
