@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="desktop" > 
+<link href="/D-K-Deng/D-K-Deng.github.io/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/D-K-Deng/D-K-Deng.github.io/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/D-K-Deng/D-K-Deng.github.io/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/D-K-Deng/D-K-Deng.github.io/js/color.global.min.js" ></script>
+<script src="/D-K-Deng/D-K-Deng.github.io/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>Protein Optimize | Zhaowen Deng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/D-K-Deng/D-K-Deng.github.io/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/D-K-Deng/D-K-Deng.github.io/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="This project is a tool for easy calculating certain factors of variant forms of specific project sequences. It is a part of the dry lab 💻, also bioinformatic jobs in DKU iGEM 2023 Competition.  For i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Protein Optimize">
+<meta property="og:url" content="https://github.com/D-K-Deng/D-K-Deng.github.io/2023/10/01/protein-optimize/index.html">
+<meta property="og:site_name" content="Zhaowen Deng">
+<meta property="og:description" content="This project is a tool for easy calculating certain factors of variant forms of specific project sequences. It is a part of the dry lab 💻, also bioinformatic jobs in DKU iGEM 2023 Competition.  For i">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/assets/dna.png">
+<meta property="article:published_time" content="2023-10-02T02:59:14.000Z">
+<meta property="article:modified_time" content="2023-10-02T15:29:21.994Z">
+<meta property="article:author" content="Zhaowen Deng">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/assets/dna.png">
+  
+    <link rel="alternate" href="/D-K-Deng/D-K-Deng.github.io/./atom.xml" title="Zhaowen Deng" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/D-K-Deng/D-K-Deng.github.io/./favicon.png">
+  
+  
+<link rel="stylesheet" href="/D-K-Deng/D-K-Deng.github.io/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="https://unpkg.com/video.js@6.7.1/dist/video-js.css">
+<script src="https://unpkg.com/video.js@6.7.1/dist/video.js"></script>
+<script src="https://unpkg.com/@videojs/http-streaming@0.9.0/dist/videojs-http-streaming.js"></script></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/D-K-Deng/D-K-Deng.github.io/./assets/test_a.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/D-K-Deng/D-K-Deng.github.io/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Zhaowen Deng </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/D-K-Deng/D-K-Deng.github.io/./">Home</a>
+    
+      <a class="main-nav-link" href="/D-K-Deng/D-K-Deng.github.io/./archives">Archives</a>
+    
+      <a class="main-nav-link" href="/D-K-Deng/D-K-Deng.github.io/./about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/D-K-Deng/D-K-Deng.github.io/./atom.xml" title="RSS Feed">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/D-K-Deng/D-K-Deng.github.io/./">Home</a>
+    
+      <a class="nav-dropdown-link" href="/D-K-Deng/D-K-Deng.github.io/./archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/D-K-Deng/D-K-Deng.github.io/./about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/D-K-Deng/D-K-Deng.github.io/./atom.xml" title="RSS Feed">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/D-K-Deng/D-K-Deng.github.io/./test.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Zhaowen Deng </div>
+      <div class="dot"></div>
+      <div class="subtitle">Computation & Design Major </div>
+      <div class="link-list">
+        
+          <a class="link-btn" href="https://github.com/D-K-Deng" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://www.linkedin.com/in/zhaowendeng" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://instagram.com/d.k.deng?igshid=OGQ5ZDc2ODk2ZA==" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box">
+            <a class="category-link" href="/D-K-Deng/D-K-Deng.github.io/categories/Game/">
+                Game
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/D-K-Deng/D-K-Deng.github.io/categories/App/">
+                App
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/D-K-Deng/D-K-Deng.github.io/categories/Introduction/">
+                Introduction
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/D-K-Deng/D-K-Deng.github.io/categories/Project/">
+                Project
+                <div class="category-count">2</div>
+            </a>
+        <div class="children"><div class="category-box">
+            <a class="category-link" href="/D-K-Deng/D-K-Deng.github.io/categories/Project/Exercise/">
+                Exercise
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/D-K-Deng/D-K-Deng.github.io/categories/Project/iGEM/">
+                iGEM
+                <div class="category-count">1</div>
+            </a>
+        </div></div></div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Tags</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/D-K-Deng/D-K-Deng.github.io/tags/Intro/" rel="tag">Intro</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/D-K-Deng/D-K-Deng.github.io/tags/android-studio/" rel="tag">android studio</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/D-K-Deng/D-K-Deng.github.io/tags/html/" rel="tag">html</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/D-K-Deng/D-K-Deng.github.io/tags/java/" rel="tag">java</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/D-K-Deng/D-K-Deng.github.io/tags/python/" rel="tag">python</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Archives</h3>
+      
+      
+        <a class="archive-link" href="/D-K-Deng/D-K-Deng.github.io/archives/2023/10 ">
+          October 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/D-K-Deng/D-K-Deng.github.io/archives/2023/09 ">
+          September 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/D-K-Deng/D-K-Deng.github.io/archives/2023/05 ">
+          May 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/D-K-Deng/D-K-Deng.github.io/archives/2022/12 ">
+          December 2022 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/D-K-Deng/D-K-Deng.github.io/archives/2022/03 ">
+          March 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul>
+        
+          <a class="recent-link" href="/D-K-Deng/D-K-Deng.github.io/2023/10/01/protein-optimize/" title="Protein Optimize" >
+            <div class="recent-link-text">
+              Protein Optimize
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/D-K-Deng/D-K-Deng.github.io/2023/09/24/intro/" title="Introduction" >
+            <div class="recent-link-text">
+              Introduction
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/D-K-Deng/D-K-Deng.github.io/2023/05/07/musicmap/" title="Music-Map APP" >
+            <div class="recent-link-text">
+              Music-Map APP
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/D-K-Deng/D-K-Deng.github.io/2022/12/18/CPAPP/" title="Cerebral Palsy APP Design" >
+            <div class="recent-link-text">
+              Cerebral Palsy APP Design
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/D-K-Deng/D-K-Deng.github.io/2022/12/13/data-processing/" title="Data Processing" >
+            <div class="recent-link-text">
+              Data Processing
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-protein-optimize" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img" rel="gallery_clnasl3qo000nw4yc3g03dumj">
+        <img src="/D-K-Deng/D-K-Deng.github.io/assets/dna.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        Protein Optimize
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-10-02T02:59:14.000Z" itemprop="datePublished">2023-10-01</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/D-K-Deng/D-K-Deng.github.io/categories/Project/">Project</a>><a class="meta-cate-link" href="/D-K-Deng/D-K-Deng.github.io/categories/Project/iGEM/">iGEM</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.6k words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/D-K-Deng/D-K-Deng.github.io/tags/python/" rel="tag">python</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This project is a tool for easy calculating certain factors of variant forms of specific project sequences. It is a part of the dry lab <span class="github-emoji"><span>💻</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4bb.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>, also bioinformatic jobs in DKU iGEM 2023 Competition. </p>
+<p><font size="4">For <strong>iGEM</strong> details, you can use <strong><a href="https://github.com/D-K-Deng/Protein_Optimize">this link</a></strong> that direct to the iGEM website.</font><small> (not sure if it is still working as time passes by)</small></p>
+<table>
+<thead>
+<tr>
+<th align="left">Instruction Step</th>
+<th align="center">Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Background Context</td>
+<td align="center">The abstract starts by highlighting the importance of protein design and the rise of computational methods.</td>
+</tr>
+<tr>
+<td align="left">Statement of Gaps</td>
+<td align="center">The need for a tool that combines sequence and structural analysis is identified.</td>
+</tr>
+<tr>
+<td align="left">Research Methods</td>
+<td align="center">The methods section describes the programmatic approach, sequence manipulation, use of <code>alphafold2</code>, and metrics computation.</td>
+</tr>
+<tr>
+<td align="left">Key Findings</td>
+<td align="center">The results showcase the tool’s capability in producing optimized sequence variants and computing relevant metrics.</td>
+</tr>
+<tr>
+<td align="left">Unique Value</td>
+<td align="center">The abstract concludes by emphasizing the tool’s potential in advancing protein design.</td>
+</tr>
+</tbody></table>
+<p><font size="4">You can use <strong><a href="https://github.com/D-K-Deng/Protein_Optimize">this link</a></strong> that direct to Github to access the code.</font></p>
+<p>Below is the detail report of the work <span class="github-emoji"><span>⬇</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b07.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h1><p>In the realm of computational biology and bioinformatics, designing and optimizing proteins holds paramount importance. With advancements in protein structure prediction and the continuous growth of sequence data, the possibilities of protein design have expanded. However, the challenges lie in creating a comprehensive tool that can seamlessly manipulate protein sequences and evaluate their properties. This report delves into the motivation behind designing the provided protein optimization code and elucidates its workflow and execution.</p>
+<h1 id="Motivation-for-Code-Design"><a href="#Motivation-for-Code-Design" class="headerlink" title="Motivation for Code Design:"></a>Motivation for Code Design:</h1><p>The primary impetus for designing the given code was to bridge the gap between sequence manipulation and structural analysis in protein optimization. Traditional methods often treat these steps in isolation, requiring researchers to switch between multiple tools and platforms. The need was evident for an integrated solution that could<span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>:</p>
+<ol>
+<li>Generate sequence variants based on specific criteria.</li>
+<li>Predict the structure of these variants.</li>
+<li>Evaluate their properties to guide further optimization.</li>
+</ol>
+<p>This code was envisioned as a one-stop solution to address these requirements, reducing the complexity and time overhead associated with protein optimization.</p>
+<h1 id="Workflow-of-the-Code"><a href="#Workflow-of-the-Code" class="headerlink" title="Workflow of the Code:"></a>Workflow of the Code:</h1><p>The code’s workflow can be broadly categorized into three phases<span class="github-emoji"><span>🔬</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f52c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>:</p>
+<h2 id="Sequence-Manipulation"><a href="#Sequence-Manipulation" class="headerlink" title="Sequence Manipulation:"></a>Sequence Manipulation:</h2><ol>
+<li>The code initiates with a given protein sequence (<code>seq_test</code>).</li>
+<li>A series of loops generate sequence variants by replacing specific residues with the amino acid <code>K</code> based on predetermined conditions.</li>
+<li>The generated sequence variants are stored for further analysis.</li>
+</ol>
+<h2 id="Structure-Prediction-using-AlphaFold2"><a href="#Structure-Prediction-using-AlphaFold2" class="headerlink" title="Structure Prediction using AlphaFold2:"></a>Structure Prediction using AlphaFold2:</h2><p>Most of these parts are based on Mirdita et al.’s work and we made some changes on the code.</p>
+<ol>
+<li>For each sequence variant, the Recursion_Seq function is invoked.</li>
+<li>Within this function, the sequence’s structure is predicted using the <code>AlphaFold2</code> model.</li>
+<li>The code is equipped to handle different model versions and configurations for <code>AlphaFold2</code>, ensuring flexibility and adaptability.</li>
+</ol>
+<h2 id="Property-Computation"><a href="#Property-Computation" class="headerlink" title="Property Computation:"></a>Property Computation:</h2><h3 id="Lyticity-Index"><a href="#Lyticity-Index" class="headerlink" title="Lyticity Index"></a>Lyticity Index</h3><p>The Lyticity Index is a calculated metric that quantifies the <code>lytic</code> properties of an amino acid sequence, based on its hydrophobicity and the presence of hydrophilic amino acids. Just like how the Total Hydrophobicity measure uses the Kyte-Doolittle hydrophobicity scale to assign values to each amino acid, the Lyticity Index employs a similar approach but with additional considerations for hydrophilic residues. The script computes this index by examining pairs of amino acids within the sequence, specifically those that are <code>3</code> and <code>4</code> positions apart, and summing their hydrophobicity values if both residues in the pair are not hydrophilic. This total sum serves as the Lyticity Index, offering a more nuanced view of the sequence’s behavior compared to just its total hydrophobicity.</p>
+<h3 id="Total-Hydrophobicity"><a href="#Total-Hydrophobicity" class="headerlink" title="Total Hydrophobicity"></a>Total Hydrophobicity</h3><p>The total hydrophobicity of an amino acid sequence is a numerical value that represents the overall hydrophobic character of that sequence based on the hydrophobicity of its constituent amino acids. Each single-letter amino acid code is associated with its corresponding hydrophobicity values based on the <code>Kyte-Doolittle hydrophobicity scale</code> in the code provided. The code then calculates the total hydrophobicity of a given sequence by iterating over each amino acid, and adding up their corresponding values. If an amino acid is not found in the <code>hydrophobicity_values</code> dictionary, it defaults to value <code>0</code>. </p>
+<h3 id="Peptide-Charge-at-pH-7-0"><a href="#Peptide-Charge-at-pH-7-0" class="headerlink" title="Peptide Charge at pH 7.0"></a>Peptide Charge at pH 7.0</h3><p>Peptide charge refers to the net electrical charge of a peptide molecule at a specific pH level. Peptides are composed of amino acids, and the charge of a peptide is determined by the ionization states of the constituent amino acids, which can vary depending on the pH of the surrounding environment. <code>Biopython</code> library is used to calculate the peptide charge for the given sequence. A ProteinAnalysis object is created to perform various protein sequence analyses. Then apply the <code>charge_at_pH</code> method in the <code>Bio.SeqUtils</code> module and set <code>pH=7.0</code> to get the peptide charge. </p>
+<h3 id="3D-Hydrophobic-Moment-Vector"><a href="#3D-Hydrophobic-Moment-Vector" class="headerlink" title="3D Hydrophobic Moment Vector"></a>3D Hydrophobic Moment Vector</h3><p>The hydrophobic moment in 3D is a vector that points in the direction of maximum hydrophobicity. Its magnitude signifies the strength of this hydrophobic tendency. In the provided code, this is computed using the predicted 3D structure of the protein and a predefined hydrophobicity scale for amino acids. The code employs a hydrophobicity scale, <code>hydrophobicity_values_0</code>, which assigns a specific hydrophobicity value to each amino acid. This dictionary is crucial for calculating the hydrophobic moment vector, as it quantifies the hydrophobic nature of each residue in the protein. The structure predicted by <code>AlphaFold2</code> is parsed to compute the hydrophobic moment. For each amino acid in the structure, its hydrophobicity value (from the predefined scale) is multiplied by its spatial coordinates (typically the <code>Cα</code> atom’s coordinates). This step essentially weighs the spatial position of the residue by its hydrophobicity.</p>
+<p>The formula for a residue’s contribution to the hydrophobic moment vector is<span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>:</p>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi></mtext><mo>=</mo><mtext><mi mathvariant="normal">H</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">y</mi></mtext><mo>×</mo><mtext><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mtext></mrow><annotation encoding="application/x-tex">
+\text{Contribution} = \text{Hydrophobicity} \times \text{Coordinates}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">C</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mathrm">r</span><span class="mord mathrm">i</span><span class="mord mathrm">b</span><span class="mord mathrm">u</span><span class="mord mathrm">t</span><span class="mord mathrm">i</span><span class="mord mathrm">o</span><span class="mord mathrm">n</span></span><span class="mrel">=</span><span class="text mord textstyle uncramped"><span class="mord mathrm">H</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">d</span><span class="mord mathrm">r</span><span class="mord mathrm">o</span><span class="mord mathrm">p</span><span class="mord mathrm">h</span><span class="mord mathrm">o</span><span class="mord mathrm">b</span><span class="mord mathrm">i</span><span class="mord mathrm">c</span><span class="mord mathrm">i</span><span class="mord mathrm">t</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span></span><span class="mbin">×</span><span class="text mord textstyle uncramped"><span class="mord mathrm">C</span><span class="mord mathrm">o</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">d</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">t</span><span class="mord mathrm">e</span><span class="mord mathrm">s</span></span></span></span></span>
+
+<p>The contributions of all residues are summed to yield the 3D hydrophobic moment vector. This resultant vector indicates the overall direction and magnitude of hydrophobicity in the protein structure.</p>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">H</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">c</mi><mtext>&nbsp;</mtext><mi mathvariant="normal">M</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mtext>&nbsp;</mtext><mi mathvariant="normal">V</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi></mtext><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>N</mi></mrow></msubsup><mo>(</mo><msub><mtext><mi mathvariant="normal">H</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">y</mi></mtext><mrow><mi>i</mi></mrow></msub><mo>×</mo><msub><mtext><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mtext><mrow><mi>i</mi></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">
+\text{Hydrophobic Moment Vector} = \sum_{i=1}^{N} (\text{Hydrophobicity}_{i} \times \text{Coordinates}_{i})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8423309999999999em;"></span><span class="strut bottom" style="height:1.142341em;vertical-align:-0.30001em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">H</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">d</span><span class="mord mathrm">r</span><span class="mord mathrm">o</span><span class="mord mathrm">p</span><span class="mord mathrm">h</span><span class="mord mathrm">o</span><span class="mord mathrm">b</span><span class="mord mathrm">i</span><span class="mord mathrm">c</span><span class="mord mspace">&nbsp;</span><span class="mord mathrm">M</span><span class="mord mathrm">o</span><span class="mord mathrm">m</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mspace">&nbsp;</span><span class="mord mathrm" style="margin-right:0.01389em;">V</span><span class="mord mathrm">e</span><span class="mord mathrm">c</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span></span><span class="mrel">=</span><span class="mop"><span class="op-symbol small-op mop" style="top:-0.0000050000000000050004em;">∑</span><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">H</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">d</span><span class="mord mathrm">r</span><span class="mord mathrm">o</span><span class="mord mathrm">p</span><span class="mord mathrm">h</span><span class="mord mathrm">o</span><span class="mord mathrm">b</span><span class="mord mathrm">i</span><span class="mord mathrm">c</span><span class="mord mathrm">i</span><span class="mord mathrm">t</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span></span><span class="vlist"><span style="top:0.24444em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">×</span><span class="mord"><span class="text mord textstyle uncramped"><span class="mord mathrm">C</span><span class="mord mathrm">o</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">d</span><span class="mord mathrm">i</span><span class="mord mathrm">n</span><span class="mord mathrm">a</span><span class="mord mathrm">t</span><span class="mord mathrm">e</span><span class="mord mathrm">s</span></span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span>
+
+<p>We need to normalize the vector after calculating. Normalizing a vector means adjusting its magnitude to 1 while retaining its direction. The normalized hydrophobic moment vector gives a direction-centric view of hydrophobicity without being influenced by the vector’s magnitude.</p>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext><mi mathvariant="normal">N</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">d</mi><mtext>&nbsp;</mtext><mi mathvariant="normal">V</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi></mtext><mo>=</mo><mfrac><mrow><mtext><mi mathvariant="normal">H</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">c</mi><mtext>&nbsp;</mtext><mi mathvariant="normal">M</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mtext>&nbsp;</mtext><mi mathvariant="normal">V</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi></mtext></mrow><mrow><mi mathvariant="normal">∥</mi><mtext><mi mathvariant="normal">H</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">c</mi><mtext>&nbsp;</mtext><mi mathvariant="normal">M</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mtext>&nbsp;</mtext><mi mathvariant="normal">V</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi></mtext><mi mathvariant="normal">∥</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">
+\text{Normalized Vector} = \frac{\text{Hydrophobic Moment Vector}}{\| \text{Hydrophobic Moment Vector} \|}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9322159999999999em;"></span><span class="strut bottom" style="height:1.452216em;vertical-align:-0.52em;"></span><span class="base textstyle uncramped"><span class="text mord textstyle uncramped"><span class="mord mathrm">N</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span><span class="mord mathrm">m</span><span class="mord mathrm">a</span><span class="mord mathrm">l</span><span class="mord mathrm">i</span><span class="mord mathrm">z</span><span class="mord mathrm">e</span><span class="mord mathrm">d</span><span class="mord mspace">&nbsp;</span><span class="mord mathrm" style="margin-right:0.01389em;">V</span><span class="mord mathrm">e</span><span class="mord mathrm">c</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.34500000000000003em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">∥</span><span class="text mord scriptstyle cramped"><span class="mord mathrm">H</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">d</span><span class="mord mathrm">r</span><span class="mord mathrm">o</span><span class="mord mathrm">p</span><span class="mord mathrm">h</span><span class="mord mathrm">o</span><span class="mord mathrm">b</span><span class="mord mathrm">i</span><span class="mord mathrm">c</span><span class="mord mspace">&nbsp;</span><span class="mord mathrm">M</span><span class="mord mathrm">o</span><span class="mord mathrm">m</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mspace">&nbsp;</span><span class="mord mathrm" style="margin-right:0.01389em;">V</span><span class="mord mathrm">e</span><span class="mord mathrm">c</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span></span><span class="mord mathrm">∥</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.44610799999999995em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="text mord scriptstyle uncramped"><span class="mord mathrm">H</span><span class="mord mathrm" style="margin-right:0.01389em;">y</span><span class="mord mathrm">d</span><span class="mord mathrm">r</span><span class="mord mathrm">o</span><span class="mord mathrm">p</span><span class="mord mathrm">h</span><span class="mord mathrm">o</span><span class="mord mathrm">b</span><span class="mord mathrm">i</span><span class="mord mathrm">c</span><span class="mord mspace">&nbsp;</span><span class="mord mathrm">M</span><span class="mord mathrm">o</span><span class="mord mathrm">m</span><span class="mord mathrm">e</span><span class="mord mathrm">n</span><span class="mord mathrm">t</span><span class="mord mspace">&nbsp;</span><span class="mord mathrm" style="margin-right:0.01389em;">V</span><span class="mord mathrm">e</span><span class="mord mathrm">c</span><span class="mord mathrm">t</span><span class="mord mathrm">o</span><span class="mord mathrm">r</span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>
+
+<h1 id="Results-Compilation-and-Export"><a href="#Results-Compilation-and-Export" class="headerlink" title="Results Compilation and Export:"></a>Results Compilation and Export:</h1><p>The calculated properties for each sequence variant are compiled into a pandas <code>DataFrame</code>. This <code>DataFrame</code> is exported as an Excel file, providing a structured view of the results. Below is an example output <span class="github-emoji"><span>🔽</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f53d.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<table>
+<thead>
+<tr>
+<th>Sequence</th>
+<th>Lyticity Index</th>
+<th>Total Hydrophobicity</th>
+<th>Peptide Charge at pH 7.0</th>
+<th>3D Hydrophobic Moment Vector</th>
+<th>Normalized Direction Vector</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MCCNRGKNVS</td>
+<td>1261.1</td>
+<td>569.3</td>
+<td>-3.15597</td>
+<td>[-1059.53711075 -1037.49116067   865.59110707]</td>
+<td>[-0.61706891 -0.60422947  0.50411577]</td>
+</tr>
+<tr>
+<td>MCCNRGKKVS</td>
+<td>1261.1</td>
+<td>567.7</td>
+<td>-2.15696</td>
+<td>[963.0640111  769.35116827 239.65329577]</td>
+<td>[0.76694302 0.61267839 0.19084964]</td>
+</tr>
+</tbody></table>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h1><p>The designed code serves as an integrated solution for protein optimization, combining sequence manipulation, structure prediction, and property evaluation. Through its comprehensive workflow, the code simplifies the complexities associated with protein design, making it a valuable tool for researchers and bioinformaticians.</p>
+<h1 id="Usage-of-Property"><a href="#Usage-of-Property" class="headerlink" title="Usage of Property"></a>Usage of Property</h1><h2 id="Lyticity-Index-1"><a href="#Lyticity-Index-1" class="headerlink" title="Lyticity Index"></a>Lyticity Index</h2><p>The Lyticity Index can be used for a range of applications in bioinformatics, molecular biology, and perhaps even drug design. While total hydrophobicity gives a general idea about a sequence’s behavior, the Lyticity Index adds an extra layer by also considering the sequence’s hydrophilic residues and their placement. This makes it a useful metric for a more nuanced understanding of a sequence’s potential biological functions or interactions. For example, it might help in predicting the lytic or membrane-disrupting abilities of peptides, which can be critical for antimicrobial or antitumor activity. Just like how total hydrophobicity can be used for structural prediction, the Lyticity Index could offer additional insights into peptide or protein behavior.</p>
+<h2 id="Total-Hydrophobicity-1"><a href="#Total-Hydrophobicity-1" class="headerlink" title="Total Hydrophobicity"></a>Total Hydrophobicity</h2><p>Calculating the total hydrophobicity of an amino acid sequence is a way to quantitatively assess the overall hydrophobic character of a protein or peptide based on its primary amino acid sequence. This property is used in bioinformatics and molecular biology for various purposes, such as structural prediction or for the detection of membrane-associated or embedded <code>β-sheets</code> and <code>α-helices</code>.</p>
+<h2 id="Peptide-Charge-at-pH-7-0-1"><a href="#Peptide-Charge-at-pH-7-0-1" class="headerlink" title="Peptide Charge at pH 7.0"></a>Peptide Charge at pH 7.0</h2><p>Peptide charge calculation is a procedure of deducing the net electrical charge of a peptide or protein by analyzing the particular arrangement of amino acids within its sequence. This is essential in biochemistry and molecular biology and provides valuable information about the behavior and function of the molecule. For example, predicting how a protein or peptide will move during electrophoresis or how it will interact with an ion-exchange medium used for chromatography.</p>
+<h2 id="3D-Hydrophobic-Moment-Vector-1"><a href="#3D-Hydrophobic-Moment-Vector-1" class="headerlink" title="3D Hydrophobic Moment Vector"></a>3D Hydrophobic Moment Vector</h2><p>Understanding the 3D hydrophobic moment is pivotal for various reasons. A pronounced hydrophobic moment indicates a protein’s amphipathic nature, meaning it has distinct hydrophobic and hydrophilic regions. This characteristic is crucial for proteins interacting with membranes or forming channels. Furthermore, the direction and magnitude of the hydrophobic moment can provide insights into the potential functional regions of the protein. It can also influence a protein’s structural stability, especially in membrane environments. In conclusion, the calculation of the 3D hydrophobic moment vector, as implemented in the provided code, offers a nuanced understanding of a protein’s hydrophobic characteristics in spatial terms. By integrating hydrophobicity scales with 3D structural data, this metric presents a comprehensive view of the protein’s potential interactions and behaviors, making it an invaluable tool in protein analysis and design.</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/D-K-Deng/D-K-Deng.github.io/2023/09/24/intro/"
+      title="Introduction"
+     >
+
+    <p class="title-text">
+      
+        Introduction
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">Comments </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":"CYgkGwEPckQAKt2uqS9KZ2np-gzGzoHsz","appKey":"ni6A78TdpCMBlavfUMSob1lR","placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2023 Zhaowen Deng<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/D-K-Deng/D-K-Deng.github.io/js/light-dark-switch.js"></script>
+<script src="/D-K-Deng/D-K-Deng.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/D-K-Deng/D-K-Deng.github.io/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
