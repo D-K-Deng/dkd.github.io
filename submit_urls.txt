@@ -1,6 +1,6 @@
-https://d-k-deng.github.io/project/2023/10/01/protein-optimize/
-https://d-k-deng.github.io/project/2023/09/24/intro/
-https://d-k-deng.github.io/project/2022/12/18/CPAPP/
-https://d-k-deng.github.io/project/2023/05/07/musicmap/
-https://d-k-deng.github.io/project/2022/12/13/data-processing/
-https://d-k-deng.github.io/project/2022/03/04/4/
+https://d-k-deng.github.io/D-K-Deng/2023/10/01/protein-optimize/
+https://d-k-deng.github.io/D-K-Deng/2023/09/24/intro/
+https://d-k-deng.github.io/D-K-Deng/2022/12/18/CPAPP/
+https://d-k-deng.github.io/D-K-Deng/2023/05/07/musicmap/
+https://d-k-deng.github.io/D-K-Deng/2022/12/13/data-processing/
+https://d-k-deng.github.io/D-K-Deng/2022/03/04/4/
