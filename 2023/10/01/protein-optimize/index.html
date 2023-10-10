@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/assets/dna.png">
 <meta property="article:published_time" content="2023-10-02T02:59:14.000Z">
-<meta property="article:modified_time" content="2023-10-02T15:29:21.994Z">
+<meta property="article:modified_time" content="2023-10-09T02:02:32.193Z">
 <meta property="article:author" content="Zhaowen Deng">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -157,11 +157,6 @@
     <div class="widget">
       <h3 class="widget-title">Categories</h3>
       <div class="category-box">
-            <a class="category-link" href="./categories/Game/">
-                Game
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="./categories/Project/">
                 Project
                 <div class="category-count">2</div>
@@ -177,14 +172,19 @@
                 <div class="category-count">1</div>
             </a>
         </div></div>
-            <a class="category-link" href="./categories/Introduction/">
-                Introduction
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="./categories/App/">
                 App
                 <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="./categories/Game/">
+                Game
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="./categories/Introduction/">
+                Introduction
+                <div class="category-count">1</div>
             </a>
         </div>
     </div>
@@ -291,7 +291,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_clnb1q6hj00076cyc4gg5gmes">
+      <a class="article-gallery-img" rel="gallery_clnksja1v000rnwyc991x1nsl">
         <img src="./assets/dna.png" itemprop="image">
       </a>
     
@@ -368,12 +368,12 @@
 </tbody></table>
 <p><font size="4">You can use <strong><a href="https://github.com/D-K-Deng/Protein_Optimize">this link</a></strong> that direct to Github to access the code.</font></p>
 <p>Below is the detail report of the work <span class="github-emoji"><span>⬇</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2b07.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h1><p>In the realm of computational biology and bioinformatics, designing and optimizing proteins holds paramount importance. With advancements in protein structure prediction and the continuous growth of sequence data, the possibilities of protein design have expanded. However, the challenges lie in creating a comprehensive tool that can seamlessly manipulate protein sequences and evaluate their properties. This report delves into the motivation behind designing the provided protein optimization code and elucidates its workflow and execution.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h1><p>In the realm of computational biology and bioinformatics, designing and optimizing proteins holds paramount importance. With advancements in protein structure prediction and the continuous growth of sequence data, the possibilities of protein design have expanded. However, the challenges lie in creating a comprehensive tool that can seamlessly manipulate protein sequences and evaluate their properties. This software tools allow users simply use google colab and run online with simple sequence input in order to get multiple properties of the variant sequence. Current version allows users modify the residues they would like to change and it will automatically generate the variant sequence properties based on 1/2-time replacement of the changing residues. </p>
 <h1 id="Motivation-for-Code-Design"><a href="#Motivation-for-Code-Design" class="headerlink" title="Motivation for Code Design:"></a>Motivation for Code Design:</h1><p>The primary impetus for designing the given code was to bridge the gap between sequence manipulation and structural analysis in protein optimization. Traditional methods often treat these steps in isolation, requiring researchers to switch between multiple tools and platforms. The need was evident for an integrated solution that could<span class="github-emoji"><span>📌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>:</p>
 <ol>
 <li>Generate sequence variants based on specific criteria.</li>
 <li>Predict the structure of these variants.</li>
-<li>Evaluate their properties to guide further optimization.</li>
+<li>Calculate their properties to guide further optimization.</li>
 </ol>
 <p>This code was envisioned as a one-stop solution to address these requirements, reducing the complexity and time overhead associated with protein optimization.</p>
 <h1 id="Workflow-of-the-Code"><a href="#Workflow-of-the-Code" class="headerlink" title="Workflow of the Code:"></a>Workflow of the Code:</h1><p>The code’s workflow can be broadly categorized into three phases<span class="github-emoji"><span>🔬</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f52c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>:</p>
