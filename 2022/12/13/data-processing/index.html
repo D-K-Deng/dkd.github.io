@@ -20,16 +20,16 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="This code is used for practicing the usage of different types of data structures. About people.txt each line in the file contains a person’s record as: given name; family name; company name; address;">
+  <meta name="description" content="This code is used for practicing the usage of different types of data structures. You can use this link that direct to Github to access the code and the txt file. Understanding the Database Processing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data Processing">
 <meta property="og:url" content="https://d-k-deng.github.io/2022/12/13/data-processing/index.html">
 <meta property="og:site_name" content="Zhaowen Deng">
-<meta property="og:description" content="This code is used for practicing the usage of different types of data structures. About people.txt each line in the file contains a person’s record as: given name; family name; company name; address;">
+<meta property="og:description" content="This code is used for practicing the usage of different types of data structures. You can use this link that direct to Github to access the code and the txt file. Understanding the Database Processing">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://d-k-deng.github.io/assets/database.png">
 <meta property="article:published_time" content="2022-12-14T01:32:40.000Z">
-<meta property="article:modified_time" content="2023-10-01T13:49:56.462Z">
+<meta property="article:modified_time" content="2023-10-22T00:54:30.065Z">
 <meta property="article:author" content="Zhaowen Deng">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -154,24 +154,24 @@
                 <div class="category-count">2</div>
             </a>
         <div class="children"><div class="category-box">
-            <a class="category-link" href="/categories/Project/iGEM/">
-                iGEM
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/Project/Exercise/">
                 Exercise
                 <div class="category-count">1</div>
             </a>
-        </div></div>
-            <a class="category-link" href="/categories/Game/">
-                Game
+        
+            <a class="category-link" href="/categories/Project/iGEM/">
+                iGEM
                 <div class="category-count">1</div>
             </a>
-        
+        </div></div>
             <a class="category-link" href="/categories/App/">
                 App
                 <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Game/">
+                Game
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/Introduction/">
@@ -283,7 +283,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_clnw5haav0005rcyc0urs734d">
+      <a class="article-gallery-img" rel="gallery_clo0rc4x4000n7syc5ygpbxni">
         <img src="/assets/database.png" itemprop="image">
       </a>
     
@@ -319,7 +319,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            90 words 
+            656 words 
           </div>
         </div>
         
@@ -329,9 +329,40 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>This code is used for practicing the usage of different types of data structures.</p>
-<p>About people.txt each line in the file contains a person’s record as: given name; family name; company name; address; city; county; state; zip; phone1; phone2; email; web; birthday Each field is split by ‘;’.</p>
-<p>This project uses BST, heap, and hashmap and implements multiple functions without using Java built-in classes LinkedList and PriorityQueue. Moreover, generic</p>
 <p><font size="4">You can use <strong><a target="_blank" rel="noopener" href="https://github.com/D-K-Deng/DataProcessing_Practice">this link</a></strong> that direct to Github to access the <strong>code and the txt file</strong>.</font></p>
+<h1 id="Understanding-the-Database-Processing-Project"><a href="#Understanding-the-Database-Processing-Project" class="headerlink" title="Understanding the Database Processing Project"></a>Understanding the Database Processing Project</h1><p>The Database Processing project is an exemplary representation of the implementation and practical application of fundamental data structures. Its primary objective is to parse, store, and manage a dataset of people’s records in an efficient manner. Each record, as taken from the <code>people.txt</code> file, consists of various fields such as given name, family name, and address, among others. Each field is delineated by a semicolon (<code>;</code>), making it a structured dataset ready for further processing.</p>
+<h2 id="1-Data-Input-and-Structure"><a href="#1-Data-Input-and-Structure" class="headerlink" title="1. Data Input and Structure:"></a>1. Data Input and Structure:</h2><p>The input file <code>people.txt</code> serves as the backbone of the project. Each line of the file encapsulates a comprehensive record of an individual, comprising:</p>
+<ul>
+<li>Given Name</li>
+<li>Family Name</li>
+<li>Company Name</li>
+<li>Address</li>
+<li>City</li>
+<li>County</li>
+<li>State</li>
+<li>ZIP Code</li>
+<li>Primary Phone Number</li>
+<li>Secondary Phone Number</li>
+<li>Email Address</li>
+<li>Web Address or URL</li>
+<li>Birthday</li>
+</ul>
+<p>Such structured data representation ensures that each person’s information is both distinct and easy to access.</p>
+<h2 id="2-Core-Data-Structures-Employed"><a href="#2-Core-Data-Structures-Employed" class="headerlink" title="2. Core Data Structures Employed:"></a>2. Core Data Structures Employed:</h2><p>The project stands out by employing three primary data structures: Binary Search Trees (BST), Heaps, and Hashmaps. These structures are implemented without leveraging Java’s built-in classes, showcasing a deep understanding of their underlying mechanisms.</p>
+<ul>
+<li><strong>Binary Search Tree (BST):</strong> The BST offers a balanced data structure, ensuring efficient data insertion, deletion, and search operations. In this project, the BST might be utilized for storing records in a manner that makes it easy to retrieve them based on specific criteria, such as alphabetical order of names. </li>
+<li><strong>Heap:</strong> Heaps, specifically min-heaps or max-heaps, are valuable for situations where there’s a need to frequently extract the smallest or largest element, respectively. In the context of the project, heaps could be useful for tasks like identifying the oldest or youngest person or even sorting people based on specific criteria.</li>
+<li><strong>Hashmap:</strong> The Quadratic Hashmap used in the project ensures efficient data retrieval operations. By hashing the names (or a combination of fields) to produce a unique key, each person’s record can be swiftly accessed, updated, or removed. The use of quadratic probing as a collision resolution technique further amplifies the efficiency of the hashmap.</li>
+</ul>
+<h2 id="3-Generic-Implementation"><a href="#3-Generic-Implementation" class="headerlink" title="3. Generic Implementation:"></a>3. Generic Implementation:</h2><p>The term “generic” in programming typically refers to class, method, or interface definitions that have a placeholder for the data type. The project’s data structures are implemented generically, meaning they can handle any type of data, not just the <code>PeopleRecord</code>. This versatility ensures that the same data structures can be repurposed for different datasets, enhancing the project’s scalability and adaptability.</p>
+<h2 id="4-Functionalities-and-Methods"><a href="#4-Functionalities-and-Methods" class="headerlink" title="4. Functionalities and Methods:"></a>4. Functionalities and Methods:</h2><p>Beyond the core data structures, the project introduces a variety of functions to interact with the stored data:</p>
+<ul>
+<li><strong>Search:</strong> Methods like <code>search</code> allow users to verify the existence of specific records within the data structures. For instance, one can easily check if there’s a record for “James Miller” in the dataset.</li>
+<li><strong>Insert and Remove:</strong> These functions facilitate the addition of new records and the removal of existing ones, ensuring that the dataset remains up-to-date.</li>
+<li><strong>Data Retrieval:</strong> The <code>get</code> method fetches records based on specified criteria, making data retrieval straightforward and efficient.</li>
+<li><strong>Advanced Data Analysis:</strong> The project also hints at more advanced functionalities, such as <code>getMostFrequentWords</code>, which can be used for text analysis or pattern recognition within the records.</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h2><p>The Database Processing project is a testament to the power and efficiency of fundamental data structures. By meticulously implementing BSTs, Heaps, and Hashmaps without relying on pre-built Java classes, the project offers insights into the inner workings of these structures. Coupled with the generic design and a plethora of functional methods, it provides a robust framework for managing and analyzing structured datasets like <code>people.txt</code>. As data continues to grow in importance in today’s digital age, such project lays the groundwork for efficient data management and processing techniques.</p>
 
         
       </div>
